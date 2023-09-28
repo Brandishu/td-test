@@ -1,6 +1,25 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+const chatboxInput = document.querySelector(".chatbox-input input");
+const chatboxMessages = document.querySelector(".chatbox-messages");
+document.querySelector(".chatbox-input button").addEventListener("click", () => {
+  const message = chatboxInput.value.trim();
+  chatboxInput.value = "";
 
+  if (message.startsWith("build")) {
+    // execute build command
+  } else if (message.startsWith("sell")) {
+    // execute sell command
+  } else if (message.startsWith("upgrade")) {
+    // execute upgrade command
+  } else {
+    // display message in chatbox
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("chatbox-message");
+    messageElement.textContent = message;
+    chatboxMessages.appendChild(messageElement);
+  }
+});
 canvas.width = 1920
 canvas.height = 1080
 
@@ -195,4 +214,23 @@ window.addEventListener('mousemove', (event) => {
       break
     }
   }
+})
+
+const chatbox = document.querySelector('#chatbox')
+const submit = document.querySelector('#submit')
+
+submit.addEventListener('click', () => {
+  const command = chatbox.value.toLowerCase()
+
+  if (command.startsWith('build')) {
+    // handle build command
+  } else if (command.startsWith('sell')) {
+    // handle sell command
+  } else if (command.startsWith('upgrade')) {
+    // handle upgrade command
+  } else {
+    // handle invalid command
+  }
+
+  chatbox.value = ''
 })
